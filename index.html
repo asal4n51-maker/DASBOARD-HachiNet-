@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HachiNet - Dashboard</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#0f0f1a;color:#fff;display:flex;min-height:100vh}
+/* SIDEBAR */
+.sidebar{width:230px;background:#151527;padding:20px;position:fixed;height:100vh;left:0;top:0}
+.logo{font-size:22px;font-weight:bold;margin-bottom:30px}.logo span{color:#ff2e7e}
+.menu a{display:block;padding:12px 15px;color:#aaa;text-decoration:none;border-radius:10px;margin-bottom:5px}
+.menu a.active,.menu a:hover{background:#ff2e7e;color:#fff}
+.main{margin-left:230px;flex:1;padding:25px;width:100%}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}
+.top h1{font-size:24px}.top p{color:#aaa;font-size:13px}
+.avatar{width:45px;height:45px;background:#ff2e7e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px}
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:25px}
+.card{background:linear-gradient(135deg,#1e1e35,#252545);padding:20px;border-radius:16px;border:1px solid #333}
+.card small{color:#aaa}.card h2{font-size:28px;margin:8px 0}.card b{color:#4dff88;font-size:13px}
+/* LAYOUT */
+.grid{display:grid;grid-template-columns:1.6fr 1fr;gap:15px}
+.box{background:#1a1a2e;padding:20px;border-radius:16px;border:1px solid #333}
+.box h3{margin-bottom:15px}
+.bar{margin-bottom:12px}.bar p{display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px}
+.bar-bg{height:10px;background:#333;border-radius:10px;overflow:hidden}.bar-fill{height:100%;border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:14px}th{color:#aaa;text-align:left;padding:10px 0;border-bottom:1px solid #333}td{padding:12px 0;border-bottom:1px solid #222}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}.online{background:#4dff88}.off{background:#ff5555}
+.btn{padding:6px 12px;border:0;border-radius:20px;font-size:12px;cursor:pointer}.btn-on{background:#4dff88}.btn-off{background:#333;color:#fff}
+.lamp-box{text-align:center;padding:15px}
+#genieLamp{font-size:90px;cursor:pointer;filter:grayscale(1) brightness(.6);opacity:.6;transition:.4s}
+#genieLamp.on{filter:drop-shadow(0 0 20px gold);opacity:1;transform:scale(1.05)}
+#genie{font-size:50px;height:55px}
+@media(max-width:800px){.sidebar{display:none}.main{margin-left:0}.cards{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}}
+  .bee{position:fixed;font-size:32px;z-index:999;pointer-events:none}
+.bee1{animation:fly1 12s linear infinite}
+.bee2{animation:fly2 15s linear infinite;font-size:24px}
+.bee3{animation:fly3 18s linear infinite;font-size:28px}
+@keyframes fly1{0%{top:10%;left:-5%}25%{top:25%;left:30%}50%{top:10%;left:60%}75%{top:40%;left:85%}100%{top:15%;left:105%}}
+@keyframes fly2{0%{top:80%;left:105%}25%{top:60%;left:70%}50%{top:85%;left:40%}75%{top:65%;left:10%}100%{top:80%;left:-5%}}
+@keyframes fly3{0%{top:50%;left:-5%}30%{top:30%;left:50%}60%{top:60%;left:70%}100%{top:40%;left:105%}}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="logo">📶 Hachi<span>Net</span></div>
+  <div class="menu">
+    <a href="#" class="active">🏠 Dashboard</a>
+    <a href="#">👥 Pelanggan</a>
+    <a href="#">💳 Voucher</a>
+    <a href="#">📶 Router</a>
+    <a href="#">💰 Laporan</a>
+    <a href="#">⚙️ Pengaturan</a>
+    <a href="index.html">🚪 Logout</a>
+  </div>
+  <div style="margin-top:30px;background:#222;padding:15px;border-radius:12px">
+    <div id="genie">🧞‍♂️</div>
+    <div id="genieLamp" onclick="toggleLamp()">🪔</div>
+    <p style="font-size:12px;color:#aaa;margin-top:5px" id="lampStatus">Klik kendi untuk nyalain lagu</p>
+  </div>
+</div>
+
+<div class="main">
+  <div class="top">
+    <div><h1>Selamat Datang, Admin 👋</h1><p>Kamis, 19 Nov 2026 • Bojonggede, Jawa Barat</p></div>
+    <div class="avatar">A</div>
+  </div>
+
+  <div class="cards">
+    <div class="card"><small>👥 Total Pelanggan</small><h2>128</h2><b>▲ +12 bulan ini</b></div>
+    <div class="card"><small>🟢 Sedang Online</small><h2>87</h2><b>▲ 68% aktif</b></div>
+    <div class="card"><small>💰 Pemasukan Hari Ini</small><h2>Rp 450rb</h2><b>▲ +25% dari kemarin</b></div>
+    <div class="card"><small>📶 Bandwidth Terpakai</small><h2>78 Mbps</h2><b style="color:#ffaa00">Dari 100 Mbps</b></div>
+  </div>
+
+  <div class="grid">
+    <div class="box">
+      <h3>📊 Pemakaian Minggu Ini</h3>
+      <div class="bar"><p><span>Senin</span><span>85 Mbps</span></p><div class="bar-bg"><div class="bar-fill" style="width:85%;background:#ff2e7e"></div></div></div>
+      <div class="bar"><p><span>Selasa</span><span>70 Mbps</span></p><div class="bar-bg"><div class="bar-fill" style="width:70%;background:#00d4ff"></div></div></div>
+      <div class="bar"><p><span>Rabu</span><span>90 Mbps</span></p><div class="bar-bg"><div class="bar-fill" style="width:90%;background:#FFD700"></div></div></div>
+      <div class="bar"><p><span>Kamis</span><span>78 Mbps</span></p><div class="bar-bg"><div class="bar-fill" style="width:78%;background:#4dff88"></div></div></div>
+      <div class="bar"><p><span>Jumat</span><span>60 Mbps</span></p><div class="bar-bg"><div class="bar-fill" style="width:60%;background:#a55eea"></div></div></div>
+    </div>
+
+    <div class="box">
+      <h3>🔥 Paket Terlaris</h3>
+      <div class="bar"><p><span>10 Mbps - 100rb</span><span>45 org</span></p><div class="bar-bg"><div class="bar-fill" style="width:90%;background:#ff2e7e"></div></div></div>
+      <div class="bar"><p><span>20 Mbps - 150rb</span><span>32 org</span></p><div class="bar-bg"><div class="bar-fill" style="width:64%;background:#00d4ff"></div></div></div>
+      <div class="bar"><p><span>50 Mbps - 250rb</span><span>12 org</span></p><div class="bar-bg"><div class="bar-fill" style="width:24%;background:#FFD700"></div></div></div>
+      <p style="font-size:12px;color:#aaa;margin-top:15px">💡 Tips: Paket 10 Mbps paling laku di Bojonggede!</p>
+    </div>
+  </div>
+
+  <div class="box" style="margin-top:15px">
+    <h3>👥 Pelanggan Terbaru</h3>
+    <table>
+      <tr><th>Nama</th><th>Paket</th><th>Status</th><th>Aksi</th></tr>
+      <tr><td>🙎 Budi Santoso</td><td>10 Mbps</td><td><span class="dot online"></span> Online</td><td><button class="btn btn-on">Aktif</button></td></tr>
+      <tr><td>🙎 Siti Aminah</td><td>20 Mbps</td><td><span class="dot online"></span> Online</td><td><button class="btn btn-on">Aktif</button></td></tr>
+      <tr><td>🙎 Andi Wijaya</td><td>10 Mbps</td><td><span class="dot off"></span> Offline</td><td><button class="btn btn-off">Nonaktif</button></td></tr>
+      <tr><td>🙎 Dewi Lestari</td><td>50 Mbps</td><td><span class="dot online"></span> Online</td><td><button class="btn btn-on">Aktif</button></td></tr>
+    </table>
+  </div>
+</div>
+
+<div id="yt-player" style="position:fixed;width:1px;height:1px;opacity:0"></div>
+<script>
+let ytPlayer=null,ytReady=false;
+var tag=document.createElement('script');tag.src="https://www.youtube.com/iframe_api";document.head.appendChild(tag);
+function onYouTubeIframeAPIReady(){ytPlayer=new YT.Player('yt-player',{height:'1',width:'1',videoId:'eaKxvjmEHgY',playerVars:{'autoplay':0},events:{'onReady':()=>{ytReady=true;}}});}
+function toggleLamp(){
+  const lamp=document.getElementById('genieLamp');
+  const isOn=lamp.classList.toggle('on');
+  document.getElementById('genie').style.display=isOn?'block':'none';
+  document.getElementById('lampStatus').innerText=isOn?'Jin Keluar! Lagu Protol Muter 🎵':'Klik kendi untuk nyalain lagu';
+  if(isOn&&ytReady){ytPlayer.seekTo(0,true);ytPlayer.playVideo();}
+  if(!isOn&&ytPlayer)ytPlayer.pauseVideo();
+}
+document.getElementById('genie').style.display='none';
+</script>
+ <div class="bee bee1">🐝</div>
+<div class="bee bee2">🐝</div>
+<div class="bee bee3">🐝</div>
+</body>
+</html>
